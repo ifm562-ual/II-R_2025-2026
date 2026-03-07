@@ -1,38 +1,33 @@
-# ROS 2 Humble Docker Environment
+# Intelligent Robotics (II-R) 2025-2026
 
-This project provides a ROS 2 Humble development environment using Docker.
+This repository contains the materials and scripts for the Intelligent Robotics. Asumme host/container/VM runs a Ubuntu based distribution.
+
+## Project Structure
+
+- `installAndStartRos2Desktop`: Installation script for ROS 2 Humble.
+- `start.sh`: Script to source the ROS 2 environment and your local workspace.
 
 ## Getting Started
 
-### 1. Start the Container
-To build and start the container in the background, run:
-```bash
-docker compose up -d
-```
+### Installation
 
-### 2. Access the Interactive Shell
-To open an interactive bash shell inside the running container:
-```bash
-docker compose exec ros2 bash
-```
-
-### 3. Install Demo Nodes
-Once inside the container, run the following commands to update the package list and install the ROS 2 demo nodes:
+To install ROS 2 Humble and set up the basic environment, you can run the provided installation script:
 
 ```bash
-apt update
-apt install -y ros-humble-demo-nodes-cpp ros-humble-demo-nodes-py
+cd ros2-humble
+./installAndStartROS2Desktop.sh
 ```
 
-### 4. Run the Demos
-After installation, you can run the talker and listener demos in separate terminals (you will need to open another interactive shell for the second command):
+### Starting the Environment
 
-**Terminal 1 (Talker):**
+Instead of manually sourcing the setups every time, you can use the `start.sh` script from the root of the repository:
+
 ```bash
-ros2 run demo_nodes_cpp talker
+source start.sh
 ```
 
-**Terminal 2 (Listener):**
-```bash
-ros2 run demo_nodes_py listener
-```
+This will source both the main ROS 2 Humble setup and your local `~/ros2_ws/install/setup.bash`.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
