@@ -2,9 +2,13 @@
 
 This repository contains the materials and scripts for the Intelligent Robotics. Asumme host/container/VM runs a Ubuntu based distribution.
 
+<p align="center">
+  <img src="https://img.shields.io/badge/https://img.shields.io/badge/ROS2-UAL-blue" alt="ROS2"/>
+</p>
+
 ## Project Structure
 
-- `installAndStartRos2Desktop`: Installation script for ROS 2 Humble.
+- `installROS2Desktop.sh`: Installation script for ROS 2 Humble.
 - `start.sh`: Script to source the ROS 2 environment and your local workspace.
 
 ## Getting Started
