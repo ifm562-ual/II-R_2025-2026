@@ -1,4 +1,7 @@
 #!/bin/bash
+mkdir ~/mvsim
+cd ~/mvsim
+
 # Clone repository
 git clone https://github.com/MRPT/mvsim.git --recursive
 
