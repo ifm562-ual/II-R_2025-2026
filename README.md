@@ -1,10 +1,12 @@
+<p align="center">
+  <img src="https://img.shields.io/badge/ROS2-UAL-blue" alt="ROS2"/>
+</p>
+
 # Intelligent Robotics (II-R) 2025-2026
 
 This repository contains the materials and scripts for the Intelligent Robotics. Asumme host/container/VM runs a Ubuntu based distribution.
 
-<p align="center">
-  <img src="https://img.shields.io/badge/https://img.shields.io/badge/ROS2-UAL-blue" alt="ROS2"/>
-</p>
+
 
 ## Project Structure
 
