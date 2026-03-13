@@ -5,6 +5,9 @@ cd ~/mvsim
 # Clone repository
 git clone https://github.com/MRPT/mvsim.git --recursive
 
+# Install all dependencies
+rosdep install --from-paths . -y --ignore-src
+
 # Build
 colcon build
 
