@@ -21,7 +21,7 @@ To install ROS 2 Humble and set up the basic environment, you can run the provid
 
 ```bash
 cd ros2-humble
-./installAndStartROS2Desktop.sh
+./installROS2Desktop.sh
 ```
 
 ### Starting the Environment

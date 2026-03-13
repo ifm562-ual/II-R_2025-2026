@@ -33,6 +33,9 @@ sudo apt update && sudo apt install -y \
 # Install ROS2 Humble Desktop
 sudo apt install ros-humble-desktop
 
+# Initialize ros in current shell
+/opt/ros/humble/setup.bash
+
 # Install ROS navigation packages
 sudo apt install ros-$ROS_DISTRO-navigation2
 
@@ -42,8 +45,14 @@ sudo apt install ros-$ROS_DISTRO-nav2-bringup
 # Ensure git is installed
 sudo apt install git
 
+# Install colcon packages
+sudo apt install python3-colcon-common-extensions
+
 # Install tools to compile ROS2 packages
 sudo apt install python3-rosdep2
+
+# Install MOLA mapping packages
+sudo apt install \ ros-$ROS_DISTRO-mola \ ros-$ROS_DISTRO-mola-state-estimation \ ros-$ROS_DISTRO-mola-lidar-odometry
 
 # Install TurtleBot3 packages
 sudo apt install ros-${ROS_DISTRO}-turtlebo3-navigation2
@@ -57,6 +66,7 @@ sudo apt-get install ros-$ROS_DISTRO-teleop-twist-keyboard
 # Create ROS 2's workspace
 mkdir -p ~/ros2_ws/src
 
+cd ~/ros2_ws/src/
 # Clone ROS2 workspace
 git clone https://github.com/cyberbotics/webots_ros2.git
 
@@ -65,7 +75,7 @@ cd webots_ros2/
 # Download all git submodules
 git submodule update --init --recursive
 
-cd ../../..
+cd ../..
 
 # Update ROS dependencies
 rosdep update
@@ -75,3 +85,6 @@ rosdep install --from-paths src -y --ignore-src
 
 # Compile all workspace's packages
 colcon build
+
+# Automatically add environment into a new shell
+echo "source ~/ros2_ws/install/setup.bash" >> ~/.bashrc
