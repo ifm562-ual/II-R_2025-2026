@@ -75,6 +75,3 @@ rosdep install --from-paths src -y --ignore-src
 
 # Compile all workspace's packages
 colcon build
-
-# Configure environment
-echo "source ~/ros2_ws/install/setup.bash" >> ~/.bashrc
