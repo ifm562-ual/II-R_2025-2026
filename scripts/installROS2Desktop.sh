@@ -1,7 +1,12 @@
 #!/bin/bash
+
+# Stop immediately if anything stops working
+set -e
+# Force non interactive script
+export DEBIAN_FRONTEND=noninteractive
 locale  # check for UTF-8
 
-sudo apt update && sudo apt install locales
+sudo apt update -y && sudo apt install locales -y
 sudo locale-gen en_US en_US.UTF-8
 sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
 export LANG=en_US.UTF-8
@@ -10,8 +15,8 @@ locale  # verify settings
 
 
 # Ensure Ubuntu Universe repository is enabled
-sudo apt install software-properties-common
-sudo add-apt-repository universe
+sudo apt install -y software-properties-common
+sudo add-apt-repository -y universe
 
 sudo apt install curl -y
 
@@ -31,37 +36,37 @@ sudo apt update && sudo apt install -y \
   ros-dev-tools
 
 # Install ROS2 Humble Desktop
-sudo apt install ros-humble-desktop
+sudo apt install ros-humble-desktop -y
 
 # Initialize ros in current shell
-/opt/ros/humble/setup.bash
+sudo /opt/ros/humble/setup.bash
 
 # Install ROS navigation packages
-sudo apt install ros-$ROS_DISTRO-navigation2
+sudo apt install ros-$ROS_DISTRO-navigation2 -y
 
 # Install Navigation2 framework
-sudo apt install ros-$ROS_DISTRO-nav2-bringup
+sudo apt install ros-$ROS_DISTRO-nav2-bringup -y
 
 # Ensure git is installed
-sudo apt install git
+sudo apt install git -y
 
 # Install colcon packages
-sudo apt install python3-colcon-common-extensions
+sudo apt install python3-colcon-common-extensions -y
 
 # Install tools to compile ROS2 packages
-sudo apt install python3-rosdep2
+sudo apt install python3-rosdep2 -y
 
 # Install MOLA mapping packages
 sudo apt install \ ros-$ROS_DISTRO-mola \ ros-$ROS_DISTRO-mola-state-estimation \ ros-$ROS_DISTRO-mola-lidar-odometry
 
 # Install TurtleBot3 packages
-sudo apt install ros-${ROS_DISTRO}-turtlebo3-navigation2
+sudo apt install ros-${ROS_DISTRO}-turtlebo3-navigation2 -y
 
 # Install Gazebo simulator
 sudo apt install gazebo
 
 # Install robot movement control panel
-sudo apt-get install ros-$ROS_DISTRO-teleop-twist-keyboard
+sudo apt-get install ros-$ROS_DISTRO-teleop-twist-keyboard -y
 
 # Create ROS 2's workspace
 mkdir -p ~/ros2_ws/src
