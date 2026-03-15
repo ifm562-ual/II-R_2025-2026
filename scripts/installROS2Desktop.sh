@@ -39,7 +39,7 @@ sudo apt update && sudo apt install -y \
 sudo apt install ros-humble-desktop -y
 
 # Initialize ros in current shell
-sudo /opt/ros/humble/setup.bash
+source /opt/ros/humble/setup.bash
 
 # Install ROS navigation packages
 sudo apt install ros-$ROS_DISTRO-navigation2 -y
