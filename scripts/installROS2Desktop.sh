@@ -57,7 +57,7 @@ sudo apt install python3-colcon-common-extensions -y
 sudo apt install python3-rosdep2 -y
 
 # Install MOLA mapping packages
-sudo apt install \ ros-$ROS_DISTRO-mola \ ros-$ROS_DISTRO-mola-state-estimation \ ros-$ROS_DISTRO-mola-lidar-odometry
+sudo apt install \ros-$ROS_DISTRO-mola \ros-$ROS_DISTRO-mola-state-estimation \ros-$ROS_DISTRO-mola-lidar-odometry
 
 # Install TurtleBot3 packages
 sudo apt install ros-${ROS_DISTRO}-turtlebo3-navigation2 -y
