@@ -21,12 +21,12 @@ sudo add-apt-repository -y universe
 sudo apt install curl -y
 
 # Install ros2-apt-source
-sudo apt update && sudo apt install curl -y
+sudo apt update -y && sudo apt install curl -y
 export ROS_APT_SOURCE_VERSION=$(curl -s https://api.github.com/repos/ros-infrastructure/ros-apt-source/releases/latest | grep -F "tag_name" | awk -F\" '{print $4}')
 curl -L -o /tmp/ros2-apt-source.deb "https://github.com/ros-infrastructure/ros-apt-source/releases/download/${ROS_APT_SOURCE_VERSION}/ros2-apt-source_${ROS_APT_SOURCE_VERSION}.$(. /etc/os-release && echo ${UBUNTU_CODENAME:-${VERSION_CODENAME}})_all.deb"
 sudo dpkg -i /tmp/ros2-apt-source.deb
 
-sudo apt update && sudo apt upgrade
+sudo apt update -y && sudo apt upgrade -y
 
 # Install common packages
 sudo apt update && sudo apt install -y \
@@ -60,10 +60,10 @@ sudo apt install python3-rosdep2 -y
 sudo apt install \ros-$ROS_DISTRO-mola \ros-$ROS_DISTRO-mola-state-estimation \ros-$ROS_DISTRO-mola-lidar-odometry
 
 # Install TurtleBot3 packages
-sudo apt install ros-${ROS_DISTRO}-turtlebo3-navigation2 -y
+sudo apt install ros-${ROS_DISTRO}-turtlebot3-navigation2 -y
 
 # Install Gazebo simulator
-sudo apt install gazebo
+sudo apt install gazebo -y
 
 # Install robot movement control panel
 sudo apt-get install ros-$ROS_DISTRO-teleop-twist-keyboard -y
