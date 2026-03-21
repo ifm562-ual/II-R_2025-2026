@@ -4,7 +4,7 @@
 
 # Intelligent Robotics (II-R) 2025-2026
 
-This repository contains the materials and scripts for the Intelligent Robotics subject of Computer Science degree in University of Almeria. Asumme host/container/VM runs a Ubuntu based distribution.
+This repository contains the materials and scripts for the Intelligent Robotics subject of Computer Science degree in University of Almeria. Asumme host/container/VM runs Ubuntu Jammy Jellyfish (22.04).
 
 
 
