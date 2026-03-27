@@ -6,6 +6,8 @@ cd ..
 sudo apt update
 sudo apt install libzip-dev
 # Install all dependencies of that package
+rosdep update
+rosdep install --from-paths src --ignore-src -r -y
 colcon build --packages-up-to ouster_ros
 source install/setup.bash
 
