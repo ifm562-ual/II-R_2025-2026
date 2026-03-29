@@ -14,7 +14,7 @@ git clone -b 1.3.1 --recurse-submodules https://github.com/MOLAorg/mola_lidar_od
 
 # Clone additional required dependencies
 git clone --recurse-submodules https://github.com/MOLAorg/mola_common.git
-git clone --recurse-submodules https://github.com/MOLAorg/mp2p_icp.git
+git clone --recurse-submodules -b 2.7.0 https://github.com/MOLAorg/mp2p_icp.git
 git clone --recurse-submodules https://github.com/MOLAorg/mola_test_datasets.git
 git clone --recurse-submodules https://github.com/MOLAorg/mola_imu_preintegration.git
 git clone --recurse-submodules https://github.com/MOLAorg/mola_sm_loop_closure.git
