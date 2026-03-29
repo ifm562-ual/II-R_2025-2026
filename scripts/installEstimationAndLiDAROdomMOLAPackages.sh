@@ -1,22 +1,33 @@
 #!/bin/bash
-#sudo apt update
-# Latest packages seem to be broken for our use, fall back to latest known working packages
-#sudo apt install ros-humble-mola \ros-humble-mola-state-estimation \ros-humble-mola-lidar-odometry
+# Purge existing ROS MOLA packages
+sudo apt purge -y ros-humble-mola* || true
 
-set -e  # stop on error
+# Workspace setup
+ROS2_WS=~/ros2_ws
+mkdir -p "$ROS2_WS/src/mola"
+cd "$ROS2_WS/src/mola"
 
-sudo apt update
+# Clone main MOLA repos (with correct versions)
+git clone -b 2.5.0 --recurse-submodules https://github.com/MOLAorg/mola.git
+git clone -b 2.1.0 --recurse-submodules https://github.com/MOLAorg/mola_state_estimation.git
+git clone -b 1.3.1 --recurse-submodules https://github.com/MOLAorg/mola_lidar_odometry.git
 
-cd ../deb/
+# Clone additional required dependencies
+git clone --recurse-submodules https://github.com/MOLAorg/mola_common.git
+git clone --recurse-submodules https://github.com/MOLAorg/mp2p_icp.git
+git clone --recurse-submodules https://github.com/MOLAorg/mola_test_datasets.git
+git clone --recurse-submodules https://github.com/MOLAorg/mola_imu_preintegration.git
+git clone --recurse-submodules https://github.com/MOLAorg/mola_sm_loop_closure.git
 
-sudo apt purge -y ros-humble-mola \
-                   ros-humble-mola-state-estimation \
-                   ros-humble-mola-lidar-odometry
+# Clean previous build/install/logs
+cd "$ROS2_WS"
+rm -rf build/ install/ log/
 
-# Install local .deb packages (from current script directory or specify path)
-sudo apt install ./ros-humble-mola_2.5.0-1jammy.20260219.040438_amd64.deb \
-                 ./ros-humble-mola-state-estimation_2.1.0-1jammy.20260217.045414_amd64.deb \
-                 ./ros-humble-mola-lidar-odometry_1.3.1-1jammy.20260219.040447_amd64.deb
+# Source ROS 2 Humble
+source /opt/ros/humble/setup.bash
 
-# Fix any missing dependencies automatically
-sudo apt --fix-broken install -y
+# Make sure all dependencies are installed
+rosdep install --from-paths src --ignore-src -r -y
+
+
+colcon  build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo
